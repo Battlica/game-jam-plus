@@ -7,7 +7,8 @@ var right
 var jump
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-
+const ACCELERATION = 100
+const FRICTION = 20
 
 func _ready() -> void:
 	left = "p" + str(player_id) + "_left"
@@ -27,8 +28,8 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis(left, right)
 	if direction:
-		velocity.x = direction * SPEED
+		velocity.x = move_toward(velocity.x, SPEED * direction, ACCELERATION)
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, FRICTION)
 
 	move_and_slide()

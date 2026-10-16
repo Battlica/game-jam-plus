@@ -8,8 +8,8 @@
 [node name="Player1" parent="." unique_id=2012800532 instance=ExtResource("1_ig7tw")]
 player_id = 1
 
-[node name="MainPlatform" parent="." unique_id=192484755 instance=ExtResource("2_0xm2m")]
-
 [node name="Player2" parent="." unique_id=210690658 instance=ExtResource("1_ig7tw")]
-position = Vector2(584, 115)
+position = Vector2(891, 94)
 player_id = 2
+
+[node name="MainPlatform" parent="." unique_id=192484755 instance=ExtResource("2_0xm2m")]
