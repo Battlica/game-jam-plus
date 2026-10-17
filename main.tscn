@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://bwxfq0oj10iv" path="res://main.gd" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://dptutr31ni4pq" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://bsf7jr5tqj82e" path="res://main_platform.tscn" id="2_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://cqp0ydoauotnx" path="res://death_zone.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://d1mlgeogdlgtf" path="res://hud.tscn" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://cpx81m6i88qka" path="res://win_menu.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://3ucefucs1tnv" path="res://lightning_spawner.tscn" id="7_272bh"]
@@ -24,20 +23,18 @@ position = Vector2(933, 119)
 player_id = 2
 
 [node name="MainPlatform" parent="." unique_id=192484755 instance=ExtResource("2_0xm2m")]
-
-[node name="DeathZone" parent="." unique_id=1598961011 instance=ExtResource("3_h2yge")]
-position = Vector2(-14, 59)
+position = Vector2(-7, 11)
 
 [node name="HUD" parent="." unique_id=310700559 instance=ExtResource("5_lquwl")]
 
 [node name="WinMenu" parent="." unique_id=2002102645 instance=ExtResource("6_7mycd")]
 
 [node name="LightningSpawner" parent="." unique_id=1123771010 instance=ExtResource("7_272bh")]
+min_x = 1152.0
 
 [node name="GameTimer" type="Timer" parent="." unique_id=599295829]
 wait_time = 5.0
 one_shot = true
 autostart = true
 
-[connection signal="body_entered" from="DeathZone" to="." method="_on_death_zone_body_entered"]
 [connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]

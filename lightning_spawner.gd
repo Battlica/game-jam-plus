@@ -17,6 +17,11 @@ func _process(delta: float) -> void:
 func _on_interval_timer_timeout() -> void:
 	$WarningTimer.start()
 	$WarningLabel.text = "!"
+	
+	# Place the exclamation mark at any random point on the platform
+	var x_position = randf_range(min_x, max_x)
+	$WarningLabel.position = Vector2(x_position, 500)
+
 
 
 func _on_warning_timer_timeout() -> void:
