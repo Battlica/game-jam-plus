@@ -19,6 +19,8 @@ func lose_life(body: Node2D) -> void:
 	if body is CharacterBody2D:
 		body.lives -= 1
 		$HUD.on_lives_changed(body.name, body.lives)
+		
+		# If no more lives, end game, else respawn
 		if body.lives <= 0:
 			# End the game with the Win Screen
 			get_tree().paused = true
@@ -30,7 +32,7 @@ func lose_life(body: Node2D) -> void:
 		else:
 			# Respawn the player
 			body.position = respawn_point
-
+			
 
 # When time runs out, start the lighting overtime.
 func _on_game_timer_timeout() -> void:
