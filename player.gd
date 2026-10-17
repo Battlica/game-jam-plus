@@ -54,6 +54,14 @@ func _physics_process(delta: float) -> void:
 
 func check_hit():
 	for body in $AttackArea.get_overlapping_bodies():
-		if body is CharacterBody2D:
-			if invincible == false:
-				player_hit.emit(body)
+		if body is CharacterBody2D and body != self:
+			player_hit.emit(body)
+
+
+func start_invincibility():
+	invincible = true
+	$InvincibilityTimer.start()
+
+
+func _on_invincibility_timer_timeout() -> void:
+	invincible = false

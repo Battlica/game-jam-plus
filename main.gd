@@ -17,22 +17,23 @@ func _process(delta: float) -> void:
 # When the player dies, check if they lose a life and respawn, or game ends
 func lose_life(body: Node2D) -> void:
 	if body is CharacterBody2D:
-		body.lives -= 1
-		$HUD.on_lives_changed(body.name, body.lives)
-		
-		# If no more lives, end game, else respawn
-		if body.lives <= 0:
-			# End the game with the Win Screen
-			get_tree().paused = true
-			$WinMenu.visible = true
-			if body.name == "Player1":
-				$WinMenu/Label.text = "Player 2 Wins!"
-			elif body.name == "Player2":
-				$WinMenu/Label.text = "Player 1 Wins!"
-		else:
-			# Respawn the player
-			body.position = respawn_point
+		if body.invincible == false:
+			body.lives -= 1
+			$HUD.on_lives_changed(body.name, body.lives)
 			
+			# If no more lives, end game, else respawn
+			if body.lives <= 0:
+				# End the game with the Win Screen
+				get_tree().paused = true
+				$WinMenu.visible = true
+				if body.name == "Player1":
+					$WinMenu/Label.text = "Player 2 Wins!"
+				elif body.name == "Player2":
+					$WinMenu/Label.text = "Player 1 Wins!"
+			else:
+				# Respawn the player
+				body.position = respawn_point
+				body.start_invincibility()
 
 # When time runs out, start the lighting overtime.
 func _on_game_timer_timeout() -> void:

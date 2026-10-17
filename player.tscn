@@ -29,3 +29,8 @@ position = Vector2(-4, 0)
 position = Vector2(60, 4)
 shape = SubResource("RectangleShape2D_onrkg")
 debug_color = Color(0.6156863, 0.5294118, 0.23529412, 0.73333335)
+
+[node name="InvincibilityTimer" type="Timer" parent="." unique_id=686047562]
+wait_time = 2.5
+
+[connection signal="timeout" from="InvincibilityTimer" to="." method="_on_invincibility_timer_timeout"]
