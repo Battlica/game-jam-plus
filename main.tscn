@@ -5,9 +5,15 @@
 [ext_resource type="PackedScene" uid="uid://bsf7jr5tqj82e" path="res://main_platform.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://cqp0ydoauotnx" path="res://death_zone.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://d1mlgeogdlgtf" path="res://hud.tscn" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://cpx81m6i88qka" path="res://win_menu.tscn" id="6_7mycd"]
 
 [node name="Main" type="Node" unique_id=1184358627]
 script = ExtResource("1_1bvp3")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1551183714]
+offset_right = 1148.0
+offset_bottom = 652.0
+color = Color(0.31764707, 0.23921569, 0.32941177, 1)
 
 [node name="Player1" parent="." unique_id=2012800532 instance=ExtResource("1_ig7tw")]
 player_id = 1
@@ -19,8 +25,10 @@ player_id = 2
 [node name="MainPlatform" parent="." unique_id=192484755 instance=ExtResource("2_0xm2m")]
 
 [node name="DeathZone" parent="." unique_id=1598961011 instance=ExtResource("3_h2yge")]
-position = Vector2(120, 247)
+position = Vector2(-14, 59)
 
 [node name="HUD" parent="." unique_id=310700559 instance=ExtResource("5_lquwl")]
+
+[node name="WinMenu" parent="." unique_id=2002102645 instance=ExtResource("6_7mycd")]
 
 [connection signal="body_entered" from="DeathZone" to="." method="_on_death_zone_body_entered"]

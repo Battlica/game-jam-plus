@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cpx81m6i88qka"]
+
+[ext_resource type="Script" uid="uid://bfne618phrc1r" path="res://win_menu.gd" id="1_e12sr"]
+
+[node name="WinMenu" type="CanvasLayer" unique_id=2002102645]
+process_mode = 3
+visible = false
+script = ExtResource("1_e12sr")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1805781637]
+offset_left = 69.0
+offset_top = 57.0
+offset_right = 1083.0
+offset_bottom = 597.0
+color = Color(0.18779328, 0.18779328, 0.18779328, 1)
+
+[node name="Label" type="Label" parent="." unique_id=870859222]
+offset_left = -2.0
+offset_top = 247.0
+offset_right = 1159.0
+offset_bottom = 345.0
+theme_override_font_sizes/font_size = 50
+text = "Wins"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayButton" type="Button" parent="." unique_id=394401833]
+offset_left = 494.0
+offset_top = 417.0
+offset_right = 644.0
+offset_bottom = 511.0
+theme_override_font_sizes/font_size = 30
+text = "Play"
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]

@@ -11,13 +11,20 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+
 # If player enters death zone, they either lose a life and respawn or lose the game
 func _on_death_zone_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
 		body.lives -= 1
+		$HUD.on_lives_changed(body.name, body.lives)
 		if body.lives <= 0:
-			# end game
-			print(body.name + " lost")
+			# End the game with the Win Screen
+			get_tree().paused = true
+			$WinMenu.visible = true
+			if body.name == "Player1":
+				$WinMenu/Label.text = "Player 2 Wins!"
+			elif body.name == "Player2":
+				$WinMenu/Label.text = "Player 1 Wins!"
 		else:
-			print(body.name + " lives: " + str(body.lives))
-			body.position = Vector2(537, 75)
+			# Respawn the player
+			body.position = respawn_point

@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://d1mlgeogdlgtf"]
 
+[ext_resource type="Script" uid="uid://040f8fsnv3ew" path="res://hud.gd" id="1_37p78"]
+
 [node name="HUD" type="CanvasLayer" unique_id=310700559]
+script = ExtResource("1_37p78")
 
 [node name="Player1Lives" type="Label" parent="." unique_id=1461431299]
 offset_left = 27.0
@@ -10,7 +13,7 @@ offset_bottom = 80.0
 theme_override_font_sizes/font_size = 40
 text = "Player 1:"
 
-[node name="Lives Value" type="Label" parent="Player1Lives" unique_id=595302634]
+[node name="LivesValue" type="Label" parent="Player1Lives" unique_id=595302634]
 layout_mode = 0
 offset_left = 57.0
 offset_top = 68.0
@@ -28,7 +31,7 @@ theme_override_font_sizes/font_size = 40
 text = "Player 2:
 "
 
-[node name="Lives Value" type="Label" parent="Player2Lives" unique_id=147292600]
+[node name="LivesValue" type="Label" parent="Player2Lives" unique_id=147292600]
 layout_mode = 0
 offset_left = 67.0
 offset_top = 67.0
