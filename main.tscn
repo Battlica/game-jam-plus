@@ -1,15 +1,26 @@
 [gd_scene format=3 uid="uid://th4rvxid520m"]
 
+[ext_resource type="Script" uid="uid://bwxfq0oj10iv" path="res://main.gd" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://dptutr31ni4pq" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://bsf7jr5tqj82e" path="res://main_platform.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://cqp0ydoauotnx" path="res://death_zone.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://d1mlgeogdlgtf" path="res://hud.tscn" id="5_lquwl"]
 
 [node name="Main" type="Node" unique_id=1184358627]
+script = ExtResource("1_1bvp3")
 
 [node name="Player1" parent="." unique_id=2012800532 instance=ExtResource("1_ig7tw")]
 player_id = 1
 
 [node name="Player2" parent="." unique_id=210690658 instance=ExtResource("1_ig7tw")]
-position = Vector2(891, 94)
+position = Vector2(933, 119)
 player_id = 2
 
 [node name="MainPlatform" parent="." unique_id=192484755 instance=ExtResource("2_0xm2m")]
+
+[node name="DeathZone" parent="." unique_id=1598961011 instance=ExtResource("3_h2yge")]
+position = Vector2(120, 247)
+
+[node name="HUD" parent="." unique_id=310700559 instance=ExtResource("5_lquwl")]
+
+[connection signal="body_entered" from="DeathZone" to="." method="_on_death_zone_body_entered"]

@@ -7,9 +7,8 @@
 size = Vector2(122.5, 122.5)
 
 [node name="Player1" type="CharacterBody2D" unique_id=2012800532]
-position = Vector2(152, 115)
+position = Vector2(160, 112)
 script = ExtResource("1_bxx23")
-metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=207986653]
 position = Vector2(2, 1)
