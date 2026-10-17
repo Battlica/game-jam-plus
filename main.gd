@@ -6,6 +6,7 @@ var respawn_point := Vector2(537, 75)
 func _ready() -> void:
 	$Player1.player_hit.connect($"."._on_player_hit)
 	$Player2.player_hit.connect($"."._on_player_hit)
+	$LightningSpawner.player_hit.connect($"."._on_player_hit)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

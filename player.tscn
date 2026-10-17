@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://v5cu1276vqab" path="res://icon.svg" id="2_qh3su"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_buxg0"]
-size = Vector2(122.5, 122.5)
+size = Vector2(71.25, 122.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
 size = Vector2(46.5, 33)
@@ -14,16 +14,17 @@ position = Vector2(160, 112)
 script = ExtResource("1_bxx23")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=207986653]
-position = Vector2(2, 1)
+position = Vector2(-27, 1)
+scale = Vector2(0.546875, 1)
 texture = ExtResource("2_qh3su")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=210560316]
-position = Vector2(1, 0)
+position = Vector2(-24.625, 0)
 shape = SubResource("RectangleShape2D_buxg0")
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=807345608]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=210515617]
-position = Vector2(92.75, 6.5)
+position = Vector2(38, -3)
 shape = SubResource("RectangleShape2D_onrkg")
 debug_color = Color(0.6156863, 0.5294118, 0.23529412, 0.73333335)

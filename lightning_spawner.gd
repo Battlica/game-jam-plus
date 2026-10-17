@@ -31,6 +31,9 @@ func _on_warning_timer_timeout() -> void:
 	$StrikeArea.visible = true
 	check_hit()
 	$LightningDurationTimer.start()
+	
+	# Reset lightning interval ad make the duration shorter
+	$IntervalTimer.wait_time *= 0.8
 	$IntervalTimer.start()
 
 

@@ -31,7 +31,8 @@ shape = SubResource("RectangleShape2D_bj5xe")
 debug_color = Color(0.9411544, 0.9730894, 0.99999994, 0.41960785)
 
 [node name="LightningDurationTimer" type="Timer" parent="." unique_id=212971964]
-wait_time = 0.5
+wait_time = 0.35
+one_shot = true
 
 [connection signal="timeout" from="IntervalTimer" to="." method="_on_interval_timer_timeout"]
 [connection signal="timeout" from="WarningTimer" to="." method="_on_warning_timer_timeout"]
