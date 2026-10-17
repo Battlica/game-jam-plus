@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://cksth13lvlrac" path="res://lightning_spawner.gd" id="1_bj5xe"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bj5xe"]
+size = Vector2(28, 600)
+
 [node name="LightningSpawner" type="Node2D" unique_id=326213139]
 script = ExtResource("1_bj5xe")
 
@@ -19,5 +22,17 @@ offset_right = 619.0
 offset_bottom = 325.0
 theme_override_font_sizes/font_size = 40
 
+[node name="StrikeArea" type="Area2D" parent="." unique_id=301997864]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StrikeArea" unique_id=829245731]
+position = Vector2(90, 283)
+shape = SubResource("RectangleShape2D_bj5xe")
+debug_color = Color(0.9411544, 0.9730894, 0.99999994, 0.41960785)
+
+[node name="LightningDurationTimer" type="Timer" parent="." unique_id=212971964]
+wait_time = 0.5
+
 [connection signal="timeout" from="IntervalTimer" to="." method="_on_interval_timer_timeout"]
 [connection signal="timeout" from="WarningTimer" to="." method="_on_warning_timer_timeout"]
+[connection signal="timeout" from="LightningDurationTimer" to="." method="_on_lightning_duration_timer_timeout"]
