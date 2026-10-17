@@ -9,7 +9,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	$HUD.display_current_time($GameTimer.get_time_left())
 
 
 # If player enters death zone, they either lose a life and respawn or lose the game
@@ -28,3 +28,8 @@ func _on_death_zone_body_entered(body: Node2D) -> void:
 		else:
 			# Respawn the player
 			body.position = respawn_point
+
+
+# When time runs out, start the lighting overtime.
+func _on_game_timer_timeout() -> void:
+	$LightningSpawner.start_interval_timer()

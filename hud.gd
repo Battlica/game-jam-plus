@@ -16,3 +16,7 @@ func on_lives_changed(player, lives):
 		$"Player1Lives/LivesValue".text = str(lives)
 	elif player == "Player2":
 		$"Player2Lives/LivesValue".text = str(lives)
+
+
+func display_current_time(time: float):
+		$TimerLabel.text = ("%.1f" % time if time > 0 else "OVERTIME")

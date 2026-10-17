@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://3ucefucs1tnv"]
+
+[ext_resource type="Script" uid="uid://cksth13lvlrac" path="res://lightning_spawner.gd" id="1_bj5xe"]
+
+[node name="LightningSpawner" type="Node2D" unique_id=326213139]
+script = ExtResource("1_bj5xe")
+
+[node name="IntervalTimer" type="Timer" parent="." unique_id=386709634]
+wait_time = 2.0
+one_shot = true
+
+[node name="WarningTimer" type="Timer" parent="." unique_id=1933609721]
+one_shot = true
+
+[node name="WarningLabel" type="Label" parent="." unique_id=1444283571]
+offset_left = 297.0
+offset_top = 127.0
+offset_right = 619.0
+offset_bottom = 325.0
+theme_override_font_sizes/font_size = 40
+
+[connection signal="timeout" from="IntervalTimer" to="." method="_on_interval_timer_timeout"]
+[connection signal="timeout" from="WarningTimer" to="." method="_on_warning_timer_timeout"]
