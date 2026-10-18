@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var player_id: int
 @export var frames: SpriteFrames
 
-signal player_hit(player)
+signal player_hit(player, ownself)
 
 var left
 var right
@@ -71,16 +71,18 @@ func _physics_process(delta: float) -> void:
 func check_hit():
 	for body in $AttackArea.get_overlapping_bodies():
 		if body is CharacterBody2D and body != self:
-			player_hit.emit(body)
+			player_hit.emit(body, self)
 
 
 func start_invincibility(dur):
 	invincible = true
+	$AnimatedSprite2D.modulate.a = 0.4
 	$InvincibilityTimer.start(dur)
 
 
 func _on_invincibility_timer_timeout() -> void:
 	invincible = false
+	$AnimatedSprite2D.modulate.a = 1
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:
@@ -100,3 +102,7 @@ func play_hurt_animation():
 func _on_animated_sprite_2d_frame_changed() -> void:
 	if $AnimatedSprite2D.animation == "attack2" and $AnimatedSprite2D.frame == 3:
 		check_hit()
+
+
+func knockback():
+	velocity.x = 300
