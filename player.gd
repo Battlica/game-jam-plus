@@ -9,11 +9,11 @@ var left
 var right
 var jump
 var attack
-var lives := 3
+var lives := 6
 var saved_direction = 1
 var invincible = false
 const SPEED = 500.0
-const JUMP_VELOCITY = -1000.0
+const JUMP_VELOCITY = -1200.0
 const ACCELERATION = 100
 const FRICTION = 20
 const GRAVITY_SCALE = 3
