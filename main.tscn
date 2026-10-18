@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://bwxfq0oj10iv" path="res://main.gd" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://dptutr31ni4pq" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://bsf7jr5tqj82e" path="res://main_platform.tscn" id="2_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://dweb7xocyne61" path="res://art/1.png" id="2_272bh"]
+[ext_resource type="SpriteFrames" uid="uid://bt4abdvagbh1h" path="res://Sprite Frames/soldier.tres" id="4_kek77"]
+[ext_resource type="SpriteFrames" uid="uid://cpld2rydb6wcy" path="res://Sprite Frames/orc.tres" id="5_4c57u"]
 [ext_resource type="PackedScene" uid="uid://d1mlgeogdlgtf" path="res://hud.tscn" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://cpx81m6i88qka" path="res://win_menu.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://3ucefucs1tnv" path="res://lightning_spawner.tscn" id="7_272bh"]
@@ -10,17 +13,19 @@
 [node name="Main" type="Node" unique_id=1184358627]
 script = ExtResource("1_1bvp3")
 
-[node name="Background" type="ColorRect" parent="." unique_id=1551183714]
-offset_right = 1148.0
-offset_bottom = 652.0
-color = Color(0.31764707, 0.23921569, 0.32941177, 1)
+[node name="Background" type="Sprite2D" parent="." unique_id=1999620522]
+position = Vector2(574.5, 320)
+scale = Vector2(2.0017362, 1.9876543)
+texture = ExtResource("2_272bh")
 
 [node name="Player1" parent="." unique_id=2012800532 instance=ExtResource("1_ig7tw")]
 player_id = 1
+frames = ExtResource("4_kek77")
 
 [node name="Player2" parent="." unique_id=210690658 instance=ExtResource("1_ig7tw")]
 position = Vector2(933, 119)
 player_id = 2
+frames = ExtResource("5_4c57u")
 
 [node name="MainPlatform" parent="." unique_id=192484755 instance=ExtResource("2_0xm2m")]
 position = Vector2(-7, 11)

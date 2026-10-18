@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var player_id: int
+@export var frames: SpriteFrames
 
 signal player_hit(player)
 
@@ -25,6 +26,8 @@ func _ready() -> void:
 	right = "p" + str(player_id) + "_right"
 	jump = "p" + str(player_id) + "_jump"
 	attack = "p" + str(player_id) + "_attack"
+	
+	$AnimatedSprite2D.sprite_frames = frames
 
 
 func _physics_process(delta: float) -> void:	
@@ -59,8 +62,6 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed(attack):
 		attack2_playing = true
 		$AnimatedSprite2D.play("attack2")
-		check_hit()
-		
 
 
 func check_hit():
@@ -90,3 +91,8 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 func play_hurt_animation():
 	$AnimatedSprite2D.play("hurt")
 	hurt_playing = true
+
+
+func _on_animated_sprite_2d_frame_changed() -> void:
+	if $AnimatedSprite2D.animation == "attack2" and $AnimatedSprite2D.frame == 3:
+		check_hit()
