@@ -6,6 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2uj4b"]
 size = Vector2(1787, 57.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1wk1d"]
+size = Vector2(48, 675)
+
 [node name="MainPlatform" type="StaticBody2D" unique_id=1519236965]
 position = Vector2(6, 11)
 script = ExtResource("1_2uj4b")
@@ -41,3 +44,11 @@ region_rect = Rect2(415.97266, 220.31247, 94.48334, 38.652252)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1416701201]
 position = Vector2(665, 588)
 shape = SubResource("RectangleShape2D_2uj4b")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1637945496]
+position = Vector2(-52, 327)
+shape = SubResource("RectangleShape2D_1wk1d")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="." unique_id=567066725]
+position = Vector2(1193, 325)
+shape = SubResource("RectangleShape2D_1wk1d")

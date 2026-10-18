@@ -41,12 +41,13 @@ func lose_life(body: Node2D) -> void:
 				# body.position = respawn_point
 				body.start_invincibility(2)
 
+
 # When time runs out, start the lighting overtime.
 func _on_game_timer_timeout() -> void:
 	$LightningSpawner.start_interval_timer()
 
 
-func _on_player_hit(player):
+func _on_player_hit(player, ownself):
 	lose_life(player)
 
 
