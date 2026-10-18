@@ -1,32 +1,85 @@
 [gd_scene format=3 uid="uid://dptutr31ni4pq"]
 
 [ext_resource type="Script" uid="uid://ccnmym0ecu2bm" path="res://player.gd" id="1_bxx23"]
-[ext_resource type="Texture2D" uid="uid://v5cu1276vqab" path="res://icon.svg" id="2_qh3su"]
+[ext_resource type="Texture2D" uid="uid://ywvifdlfb8g5" path="res://art/Soldier/Soldier_Idle.png" id="2_onrkg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3pqv"]
+atlas = ExtResource("2_onrkg")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqtel"]
+atlas = ExtResource("2_onrkg")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sweqy"]
+atlas = ExtResource("2_onrkg")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hs0m"]
+atlas = ExtResource("2_onrkg")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jxqw"]
+atlas = ExtResource("2_onrkg")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dw050"]
+atlas = ExtResource("2_onrkg")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1wk1d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3pqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqtel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sweqy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hs0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jxqw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dw050")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 8.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_buxg0"]
-size = Vector2(71.25, 122.5)
+size = Vector2(60, 95)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
-size = Vector2(46.5, 33)
+size = Vector2(18.25, 69.5)
 
 [node name="Player1" type="CharacterBody2D" unique_id=2012800532]
 position = Vector2(176, 129)
 script = ExtResource("1_bxx23")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=207986653]
-position = Vector2(-2, 0)
-scale = Vector2(0.546875, 1)
-texture = ExtResource("2_qh3su")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1653718341]
+position = Vector2(7.6293945e-06, 0)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_1wk1d")
+animation = &"idle"
+autoplay = "idle"
+frame = 2
+frame_progress = 0.0047262046
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=210560316]
-position = Vector2(-4, 0)
+position = Vector2(0, -12.5)
 shape = SubResource("RectangleShape2D_buxg0")
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=807345608]
-position = Vector2(-4, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=210515617]
-position = Vector2(60, 4)
+position = Vector2(39, -8.75)
 shape = SubResource("RectangleShape2D_onrkg")
 debug_color = Color(0.6156863, 0.5294118, 0.23529412, 0.73333335)
 
