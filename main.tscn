@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dptutr31ni4pq" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://bsf7jr5tqj82e" path="res://main_platform.tscn" id="2_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://dweb7xocyne61" path="res://art/1.png" id="2_272bh"]
+[ext_resource type="PackedScene" uid="uid://qjgqpvqputvm" path="res://floating_platform.tscn" id="4_4c57u"]
 [ext_resource type="SpriteFrames" uid="uid://bt4abdvagbh1h" path="res://Sprite Frames/soldier.tres" id="4_kek77"]
 [ext_resource type="SpriteFrames" uid="uid://cpld2rydb6wcy" path="res://Sprite Frames/orc.tres" id="5_4c57u"]
 [ext_resource type="PackedScene" uid="uid://d1mlgeogdlgtf" path="res://hud.tscn" id="5_lquwl"]
@@ -22,13 +23,16 @@ texture = ExtResource("2_272bh")
 player_id = 1
 frames = ExtResource("4_kek77")
 
+[node name="MainPlatform" parent="." unique_id=192484755 instance=ExtResource("2_0xm2m")]
+position = Vector2(-7, 11)
+
+[node name="FloatingPlatform" parent="." unique_id=778303035 instance=ExtResource("4_4c57u")]
+position = Vector2(-1, 5)
+
 [node name="Player2" parent="." unique_id=210690658 instance=ExtResource("1_ig7tw")]
 position = Vector2(933, 119)
 player_id = 2
 frames = ExtResource("5_4c57u")
-
-[node name="MainPlatform" parent="." unique_id=192484755 instance=ExtResource("2_0xm2m")]
-position = Vector2(-7, 11)
 
 [node name="HUD" parent="." unique_id=310700559 instance=ExtResource("5_lquwl")]
 
