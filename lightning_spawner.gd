@@ -3,7 +3,7 @@ extends Node
 @export var max_x: float
 @export var min_x: float
 
-signal player_hit(player)
+signal player_hit(player, ownself)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,7 +22,6 @@ func _on_interval_timer_timeout() -> void:
 	$StrikeArea.position = Vector2(x_position - 100, 0)
 	$WarningTimer.start()
 	$WarningLabel.text = "!"
-	
 
 
 
@@ -44,7 +43,7 @@ func start_interval_timer():
 func check_hit():
 	for body in $StrikeArea.get_overlapping_bodies():
 		if body is CharacterBody2D:
-			player_hit.emit(body)
+			player_hit.emit(body, self)
 
 
 func _on_lightning_duration_timer_timeout() -> void:
