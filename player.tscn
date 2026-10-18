@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ccnmym0ecu2bm" path="res://player.gd" id="1_bxx23"]
 [ext_resource type="SpriteFrames" uid="uid://bt4abdvagbh1h" path="res://Sprite Frames/soldier.tres" id="2_onrkg"]
+[ext_resource type="PackedScene" uid="uid://cdh0k7ua0jmg" path="res://slot.tscn" id="3_i3pqv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_buxg0"]
 size = Vector2(71, 104)
@@ -34,6 +35,8 @@ debug_color = Color(0.6156863, 0.5294118, 0.23529412, 0.73333335)
 
 [node name="InvincibilityTimer" type="Timer" parent="." unique_id=686047562]
 wait_time = 2.5
+
+[node name="Slot" parent="." unique_id=182238302 instance=ExtResource("3_i3pqv")]
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]

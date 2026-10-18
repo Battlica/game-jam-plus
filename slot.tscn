@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cdh0k7ua0jmg"]
+
+[ext_resource type="Script" uid="uid://7ohtofbx2d5v" path="res://slot.gd" id="1_c24ra"]
+
+[node name="Slot" type="Node2D" unique_id=182238302]
+script = ExtResource("1_c24ra")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1479631343]
+offset_left = 26.0
+offset_top = 475.0
+offset_right = 269.0
+offset_bottom = 614.0
+
+[node name="Reel1" type="Label" parent="HBoxContainer" unique_id=1879411670]
+layout_mode = 2
+
+[node name="Reel2" type="Label" parent="HBoxContainer" unique_id=519228778]
+layout_mode = 2
+
+[node name="Reel3" type="Label" parent="HBoxContainer" unique_id=499972579]
+layout_mode = 2
+
+[node name="Result" type="Label" parent="." unique_id=1347449407]
+offset_left = 40.0
+offset_top = 355.0
+offset_right = 215.0
+offset_bottom = 449.0
+
+[node name="SpinTimer" type="Timer" parent="." unique_id=1652765692]
+wait_time = 5.0
