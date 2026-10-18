@@ -16,6 +16,9 @@ const JUMP_VELOCITY = -700.0
 const ACCELERATION = 100
 const FRICTION = 20
 
+# animation states
+var attack2_playing = false
+var hurt_playing = false
 
 func _ready() -> void:
 	left = "p" + str(player_id) + "_left"
@@ -24,11 +27,7 @@ func _ready() -> void:
 	attack = "p" + str(player_id) + "_attack"
 
 
-func _physics_process(delta: float) -> void:
-	# When attack is pressed, if there is a player in the attack area, send a signal 
-	if Input.is_action_just_pressed(attack):
-		check_hit()
-	
+func _physics_process(delta: float) -> void:	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -43,13 +42,25 @@ func _physics_process(delta: float) -> void:
 	if saved_direction != direction and direction != 0:
 		saved_direction = direction
 		$"AttackArea/CollisionShape2D".position.x *= -1
+		$AnimatedSprite2D.flip_h = !$AnimatedSprite2D.flip_h
 	
 	if direction:
 		velocity.x = move_toward(velocity.x, SPEED * direction, ACCELERATION)
+		if attack2_playing != true and hurt_playing != true:
+			$AnimatedSprite2D.play("walk")
 	else:
 		velocity.x = move_toward(velocity.x, 0, FRICTION)
+		if attack2_playing != true and hurt_playing != true:
+			$AnimatedSprite2D.play("idle")
 	
 	move_and_slide()
+	
+	# When attack is pressed, if there is a player in the attack area, send a signal 
+	if Input.is_action_just_pressed(attack):
+		attack2_playing = true
+		$AnimatedSprite2D.play("attack2")
+		check_hit()
+		
 
 
 func check_hit():
@@ -65,3 +76,17 @@ func start_invincibility():
 
 func _on_invincibility_timer_timeout() -> void:
 	invincible = false
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if $AnimatedSprite2D.animation == "attack2":
+		attack2_playing = false
+		$AnimatedSprite2D.play("idle")
+	elif $AnimatedSprite2D.animation == "hurt":
+		hurt_playing = false
+		$AnimatedSprite2D.play("idle")
+
+
+func play_hurt_animation():
+	$AnimatedSprite2D.play("hurt")
+	hurt_playing = true

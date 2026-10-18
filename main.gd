@@ -20,6 +20,7 @@ func lose_life(body: Node2D) -> void:
 		if body.invincible == false:
 			body.lives -= 1
 			$HUD.on_lives_changed(body.name, body.lives)
+			body.play_hurt_animation()
 			
 			# If no more lives, end game, else respawn
 			if body.lives <= 0:
@@ -32,7 +33,7 @@ func lose_life(body: Node2D) -> void:
 					$WinMenu/Label.text = "Player 1 Wins!"
 			else:
 				# Respawn the player
-				body.position = respawn_point
+				# body.position = respawn_point
 				body.start_invincibility()
 
 # When time runs out, start the lighting overtime.
