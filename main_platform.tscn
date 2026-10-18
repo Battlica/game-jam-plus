@@ -1,20 +1,43 @@
 [gd_scene format=3 uid="uid://bsf7jr5tqj82e"]
 
 [ext_resource type="Script" uid="uid://m86skig2fp41" path="res://main_platform.gd" id="1_2uj4b"]
-[ext_resource type="Texture2D" uid="uid://v5cu1276vqab" path="res://icon.svg" id="1_7tx0a"]
+[ext_resource type="Texture2D" uid="uid://bbovhl7g1t7ea" path="res://art/Tileset.png" id="2_2uj4b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2uj4b"]
-size = Vector2(1862, 57.5)
+size = Vector2(1787, 57.5)
 
 [node name="MainPlatform" type="StaticBody2D" unique_id=1519236965]
 position = Vector2(6, 11)
 script = ExtResource("1_2uj4b")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1884843800]
-position = Vector2(521, 590)
-scale = Vector2(15.843749, 0.421875)
-texture = ExtResource("1_7tx0a")
+position = Vector2(127, 600)
+scale = Vector2(4, 4)
+texture = ExtResource("2_2uj4b")
+region_enabled = true
+region_rect = Rect2(415.97266, 220.31247, 94.48334, 38.652252)
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=431522857]
+position = Vector2(765, 606)
+scale = Vector2(4, 4)
+texture = ExtResource("2_2uj4b")
+region_enabled = true
+region_rect = Rect2(415.97266, 220.31247, 94.48334, 38.652252)
+
+[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=1729088784]
+position = Vector2(1055, 600)
+scale = Vector2(4, 4)
+texture = ExtResource("2_2uj4b")
+region_enabled = true
+region_rect = Rect2(415.97266, 220.31247, 94.48334, 38.652252)
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1584477517]
+position = Vector2(448, 602)
+scale = Vector2(4, 4)
+texture = ExtResource("2_2uj4b")
+region_enabled = true
+region_rect = Rect2(415.97266, 220.31247, 94.48334, 38.652252)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1416701201]
-position = Vector2(600, 592.75)
+position = Vector2(665, 588)
 shape = SubResource("RectangleShape2D_2uj4b")

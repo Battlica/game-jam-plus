@@ -9,13 +9,14 @@ var left
 var right
 var jump
 var attack
-var lives := 3
+var lives := 6
 var saved_direction = 1
 var invincible = false
 const SPEED = 500.0
-const JUMP_VELOCITY = -700.0
+const JUMP_VELOCITY = -1200.0
 const ACCELERATION = 100
 const FRICTION = 20
+const GRAVITY_SCALE = 3
 
 # animation states
 var attack2_playing = false
@@ -33,7 +34,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:	
 	# Add the gravity.
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		velocity += get_gravity() * delta * GRAVITY_SCALE
 	
 	# Handle jump.
 	if Input.is_action_just_pressed(jump) and is_on_floor():

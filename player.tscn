@@ -4,7 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://bt4abdvagbh1h" path="res://Sprite Frames/soldier.tres" id="2_onrkg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_buxg0"]
-size = Vector2(60, 91)
+size = Vector2(71, 104)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
 size = Vector2(65.125, 91)
@@ -15,19 +15,20 @@ script = ExtResource("1_bxx23")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1653718341]
 position = Vector2(7.6293945e-06, 0)
-scale = Vector2(5, 5)
+scale = Vector2(6, 6)
 sprite_frames = ExtResource("2_onrkg")
 animation = &"attack2"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=210560316]
-position = Vector2(0, -10.5)
+position = Vector2(-0.5, -12)
 shape = SubResource("RectangleShape2D_buxg0")
+one_way_collision = true
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=807345608]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=210515617]
-position = Vector2(63.4375, -10.5)
+position = Vector2(68, -13)
 shape = SubResource("RectangleShape2D_onrkg")
 debug_color = Color(0.6156863, 0.5294118, 0.23529412, 0.73333335)
 
