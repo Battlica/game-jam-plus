@@ -17,17 +17,17 @@ func _ready() -> void:
 
 func spin() -> void:
 	print("Spin clicked")
-
+	
 	var result := [
 		symbols.pick_random(),
 		symbols.pick_random(),
 		symbols.pick_random()
 	]
-
+	
 	reel_1.text = result[0]
 	reel_2.text = result[1]
 	reel_3.text = result[2]
-
+	
 	result_label.text = get_reward_text(result)
 
 

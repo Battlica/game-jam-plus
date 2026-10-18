@@ -7,6 +7,11 @@ func _ready() -> void:
 	$Player1.player_hit.connect($"."._on_player_hit)
 	$Player2.player_hit.connect($"."._on_player_hit)
 	$LightningSpawner.player_hit.connect($"."._on_player_hit)
+	$Player1/Slot.spin_result.connect($"."._on_spin_result)
+	$Player2/Slot.spin_result.connect($"."._on_spin_result)
+	
+	$Player1/Slot.position = Vector2(0,0)
+	$Player1/Slot.position = Vector2(900,0)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -18,7 +23,7 @@ func _process(delta: float) -> void:
 func lose_life(body: Node2D) -> void:
 	if body is CharacterBody2D:
 		if body.invincible == false:
-			body.lives -= 1
+			body.lives -= body.damage
 			$HUD.on_lives_changed(body.name, body.lives)
 			body.play_hurt_animation()
 			
@@ -34,7 +39,7 @@ func lose_life(body: Node2D) -> void:
 			else:
 				# Respawn the player
 				# body.position = respawn_point
-				body.start_invincibility()
+				body.start_invincibility(2)
 
 # When time runs out, start the lighting overtime.
 func _on_game_timer_timeout() -> void:
@@ -43,3 +48,21 @@ func _on_game_timer_timeout() -> void:
 
 func _on_player_hit(player):
 	lose_life(player)
+
+
+func _on_spin_result(player, symbol, count):
+	if symbol == "❤️":
+		if count == 2:
+			player.lives += 2
+		if count == 3:
+			player.lives += 4
+	if symbol == "🛡️":
+		if count == 2:
+			player.start_invincibility(3)
+		if count == 3:
+			player.start_invincibility(6)
+	if symbol == "⚔️":
+		if count == 2:
+			player.damage += 1
+		if count == 3:
+			player.damage += 2

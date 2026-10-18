@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://3ucefucs1tnv"]
 
 [ext_resource type="Script" uid="uid://cksth13lvlrac" path="res://lightning_spawner.gd" id="1_bj5xe"]
+[ext_resource type="Texture2D" uid="uid://daukjea17iwa7" path="res://art/lightning_line5a4.png" id="2_h3nk1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bj5xe"]
 size = Vector2(28, 600)
@@ -25,10 +26,15 @@ theme_override_font_sizes/font_size = 40
 [node name="StrikeArea" type="Area2D" parent="." unique_id=301997864]
 visible = false
 
+[node name="Sprite2D" type="Sprite2D" parent="StrikeArea" unique_id=1137589695]
+position = Vector2(238, 263)
+scale = Vector2(4.125, 6.7767854)
+texture = ExtResource("2_h3nk1")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StrikeArea" unique_id=829245731]
 position = Vector2(90, 283)
 shape = SubResource("RectangleShape2D_bj5xe")
-debug_color = Color(0.9411544, 0.9730894, 0.99999994, 0.41960785)
+debug_color = Color(0.4392157, 1, 0.98039216, 0.41960785)
 
 [node name="LightningDurationTimer" type="Timer" parent="." unique_id=212971964]
 wait_time = 0.35
