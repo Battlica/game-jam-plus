@@ -12,6 +12,7 @@ var attack
 var lives := 6
 var saved_direction = 1
 var invincible = false
+var damage = 1
 const SPEED = 500.0
 const JUMP_VELOCITY = -1200.0
 const ACCELERATION = 100
@@ -29,6 +30,8 @@ func _ready() -> void:
 	attack = "p" + str(player_id) + "_attack"
 	
 	$AnimatedSprite2D.sprite_frames = frames
+	
+	$Slot.player = self
 
 
 func _physics_process(delta: float) -> void:	
@@ -71,9 +74,9 @@ func check_hit():
 			player_hit.emit(body)
 
 
-func start_invincibility():
+func start_invincibility(dur):
 	invincible = true
-	$InvincibilityTimer.start()
+	$InvincibilityTimer.start(dur)
 
 
 func _on_invincibility_timer_timeout() -> void:

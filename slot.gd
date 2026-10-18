@@ -1,7 +1,9 @@
 extends Node2D
 
 var symbols := ["⚔️", "🛡️", "❤️"]
-var result: Array
+var player
+
+signal spin_result(player, symbol, count)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,7 +16,7 @@ func _process(delta: float) -> void:
 
 
 func spin() -> void:
-	result = [
+	var result = [
 		symbols.pick_random(),
 		symbols.pick_random(),
 		symbols.pick_random()
@@ -25,6 +27,12 @@ func spin() -> void:
 	$HBoxContainer/Reel3.text = result[2]
 	
 	$Result.text = get_reward_text(result)
+	
+	var result_count = [result.count("⚔️"), result.count("🛡️"), result.count("❤️")]
+	if result_count.max() >= 2:
+		spin_result.emit(player, 
+						 symbols[result_count.find(result_count.max())], 
+						 result_count.max())
 
 
 func get_reward_text(result: Array) -> String:
@@ -54,3 +62,7 @@ func get_reward_text(result: Array) -> String:
 		
 	# All three symbols are different
 	return "No reward"
+
+
+func _on_spin_timer_timeout() -> void:
+	spin()
